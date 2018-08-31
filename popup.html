@@ -1,0 +1,106 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>Jira Tools</title>
+    <style>
+    body {
+      overflow: hidden;
+      margin: 0px;
+      padding: 0px;
+      background: white;
+    }
+
+    #container {
+		min-width: 450px;
+		margin: 10px;
+	}
+	
+	a {
+		text-decoration: none;
+		color: green;
+	}	
+	
+	* {
+	  box-sizing: border-box;
+	}
+
+	.autocomplete {
+	  /*the container must be positioned relative:*/
+	  position: relative;
+	  display: inline-block;
+	}
+	
+	.autocomplete input:focus {
+		outline-color: green;
+	}
+
+	input {
+	  border: 1px solid transparent;
+	  background-color: #f1f1f1;
+	  padding: 10px;
+	  font-size: 16px;
+	}
+
+	input[type=text] {
+	  background-color: #f1f1f1;
+	  width: 100%;
+	}
+
+	input[type=submit] {
+	  background-color: green;
+	  color: #fff;
+	  cursor: pointer;
+	}
+
+	.autocomplete-items {
+	  position: absolute;
+	  border: 1px solid green;
+	  border-bottom: none;
+	  border-top: none;
+	  z-index: 99;
+	  /*position the autocomplete items to be the same width as the container:*/
+	  top: 100%;
+	  left: 0;
+	  right: 0;
+	}
+
+	.autocomplete-items div {
+	  padding: 10px;
+	  cursor: pointer;
+	  background-color: #fff; 
+	  border-bottom: 1px solid green; 
+	}
+
+	.autocomplete-items div:hover {
+	  /*when hovering an item:*/
+	  background-color: #e9e9e9; 
+	}
+
+	.autocomplete-active {
+	  /*when navigating through the items using the arrow keys:*/
+	  background-color: green !important; 
+	  color: #ffffff; 
+	}
+	
+	.spacer {
+		border-left: solid 1px #666;
+		margin-left: 5px;
+	}
+    </style>
+    <script src="autocomplete.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div id="container">
+		<div class="autocomplete" style="width:300px;">
+			<input id="wma" type="text" name="wma" placeholder="Type Here">
+		</div>
+		<input type="submit" id="btnGo" value="Go" />	 
+		
+		<span class="spacer">&nbsp;</span>
+		
+		<label style="margin-bottom: 5px;">Hide Filters<input id="ckbHideFilters" type="checkbox" /></label>
+	</div>
+  </body>
+</html>

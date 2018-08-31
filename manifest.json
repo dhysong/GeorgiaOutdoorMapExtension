@@ -1,0 +1,26 @@
+{
+	"name": "GeorgiaOutdoorMap Enhancer",
+	"description": "This extension adds enhancements to GeorgiaOutdoorMap.com",
+	"version": "1.0",
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"storage",
+		"contextMenus"
+	],
+	"icons": {
+		"16": "icon.png",
+		"32": "icon32.png",
+		"64": "icon64.png"
+	},
+	"browser_action": {
+	  "default_title": "GeorgiaOutdoorMap Enhancer",
+	  "default_title": "Test",
+	  "default_icon": "icon.png",
+	  "default_popup": "popup.html"
+	},
+	"web_accessible_resources": [
+		"wma_data.json"
+	],
+  "manifest_version": 2
+}
