@@ -10,9 +10,9 @@
       padding: 0px;
       background: white;
     }
-
+	
     #container {
-		min-width: 450px;
+		min-width: 400px;
 		margin: 10px;
 	}
 	
@@ -24,11 +24,16 @@
 	* {
 	  box-sizing: border-box;
 	}
+	
+	.search {
+		float: left;
+		width: 280px;
+	}
 
 	.autocomplete {
-	  /*the container must be positioned relative:*/
-	  position: relative;
-	  display: inline-block;
+		/*the container must be positioned relative:*/
+		position: relative;
+		display: inline-block;
 	}
 	
 	.autocomplete input:focus {
@@ -87,20 +92,32 @@
 		border-left: solid 1px #666;
 		margin-left: 5px;
 	}
+	
+	#options  {		
+		padding-top: 5px;
+		margin-left: 280px;
+		padding-left: 10px;
+	}
     </style>
     <script src="autocomplete.js"></script>
     <script src="popup.js"></script>
   </head>
   <body>
     <div id="container">
-		<div class="autocomplete" style="width:300px;">
-			<input id="wma" type="text" name="wma" placeholder="Type Here">
+		<div class="search">
+			<div class="autocomplete">
+				<input id="wma" type="text" name="wma" placeholder="Type Here">
+			</div>
+			<input type="submit" id="btnGo" value="Go" />
 		</div>
-		<input type="submit" id="btnGo" value="Go" />	 
-		
-		<span class="spacer">&nbsp;</span>
-		
-		<label style="margin-bottom: 5px;">Hide Filters<input id="ckbHideFilters" type="checkbox" /></label>
+		<div id="options" class="spacer">		
+			<div>
+				<label style="margin-bottom: 5px;">Hide Filters<input id="ckbHideFilters" type="checkbox" /></label>
+			</div>
+			<div>
+				<label style="margin-bottom: 5px;">Show Scale<input id="ckbShowScale" type="checkbox" /></label>
+			</div>
+		</div>
 	</div>
   </body>
 </html>

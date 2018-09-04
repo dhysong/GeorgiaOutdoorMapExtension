@@ -28,6 +28,47 @@ function hideFilters(){
 	});
 }
 
+function showScale(){
+	var show = document.querySelector('#ckbShowScale:checked') && document.querySelector('#ckbShowScale:checked').value === "on" ? true : false;
+	
+	var code = "";
+	code += "this.location.href='javascript:(function (){ ";
+	code += 'map.setOptions({"scaleControl": ' + show + '});';
+	code += "void 0; ";
+	code += "})();'";	
+	
+	chrome.tabs.executeScript(null, {
+		code: code
+	});
+}
+
+function showGPS(){	
+	window.addEventListener("message", function(event) {
+		// We only accept messages from ourselves
+		console.log(event);
+		if (event.source != window)
+			return;
+
+		console.log(event);
+	});
+	
+	chrome.tabs.executeScript(null, {
+		code: code
+	});
+
+	var code = "";
+	code += "this.location.href='javascript:(function (){ ";
+	code += 'google.maps.event.addListener(map, "click", function (event) {'
+    code += 'console.log(event.latLng.lat().toString() + ", " + event.latLng.lng().toString());';// window.postMessage({"test": "tester"}, "*");'             
+    code += "});"
+	code += "void 0; ";
+	code += "})();'";	
+	
+	chrome.tabs.executeScript(null, {
+		code: code
+	});
+}
+
 function bindAutoComplete(json) {
 	autocomplete(document.getElementById("wma"), json.Data);	
 }
@@ -44,4 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('btnGo').addEventListener("click", goTo);
   
 	document.getElementById('ckbHideFilters').addEventListener("click", hideFilters);
+  
+	document.getElementById('ckbShowScale').addEventListener("click", showScale);
+	
+	showGPS();
 });
